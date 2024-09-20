@@ -1,0 +1,29 @@
+---
+name: Build
+run-name: Building files in `${{ github.repository}}` repo...
+
+concurrency: main
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    name: Building something...
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+      statuses: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Super-Linter
+        uses: super-linter/super-linter@v7.1.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
