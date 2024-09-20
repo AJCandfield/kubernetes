@@ -3,6 +3,7 @@ name: Build
 run-name: Building files in `${{ github.repository}}` repo...
 
 concurrency: main
+permissions: read-all
 
 on:
   push:
