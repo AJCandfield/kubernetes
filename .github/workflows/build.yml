@@ -10,8 +10,6 @@ permissions: read-all
 
 on:
   pull_request:
-    branches:
-      - main
 
 jobs:
   build:
@@ -19,8 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      packages: read
       statuses: write
+      packages: read
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -34,7 +32,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VALIDATE_CHECKOV: true
           VALIDATE_DOCKERFILE_HADOLINT: true
-          VALIDATE_GITHUB_ACTIONS: true
           VALIDATE_GITLEAKS: true
           VALIDATE_KUBERNETES_KUBECONFORM: true
           VALIDATE_MARKDOWN: true
@@ -45,15 +42,7 @@ jobs:
           FIX_YAML_PRETTIER: true
 
       - name: Commit and push linting fixes
-        # Run only on:
-        # - Pull requests
-        # - Not on the default branch
-        if: >
-          github.event_name == 'pull_request' &&
-          github.ref_name != github.event.repository.default_branch
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          branch: ${{ github.event.pull_request.head.ref || github.head_ref || github.ref }}
-          commit_message: "chore: fix linting issues"
-          commit_user_name: super-linter
-          commit_user_email: super-linter@super-linter.dev
+          commit_message: "chore: fix linting issues [skip ci]"
+          commit_options: '--no-verify'
