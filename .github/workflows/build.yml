@@ -1,6 +1,6 @@
 ---
-name: Build
-run-name: Building files in `${{ github.repository}}` repo...
+name: Linting
+run-name: Linting files in `${{ github.head_ref || github.ref_name }}`
 
 concurrency:
   group: ${{ github.head_ref || github.ref_name }}
@@ -12,8 +12,8 @@ on:
   pull_request:
 
 jobs:
-  build:
-    name: Building something...
+  lint:
+    name: Linting files
     runs-on: ubuntu-latest
     permissions:
       contents: write
