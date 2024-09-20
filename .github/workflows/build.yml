@@ -21,7 +21,6 @@ jobs:
       contents: read
       packages: read
       statuses: write
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -32,6 +31,16 @@ jobs:
         uses: super-linter/super-linter@v7.1.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_CHECKOV: true
+          VALIDATE_DOCKERFILE_HADOLINT: true
+          VALIDATE_GITHUB_ACTIONS: true
+          VALIDATE_GITLEAKS: true
+          VALIDATE_KUBERNETES_KUBECONFORM: true
+          VALIDATE_MARKDOWN: true
+          VALIDATE_MARKDOWN_PRETTIER: true
+          # VALIDATE_RENOVATE: true
+          VALIDATE_YAML: true
+          VALIDATE_YAML_PRETTIER: true
           FIX_YAML_PRETTIER: true
 
       - name: Commit and push linting fixes
