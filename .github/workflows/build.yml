@@ -9,9 +9,6 @@ concurrency:
 permissions: read-all
 
 on:
-  push:
-    branches-ignore:
-     - main
   pull_request:
     branches:
       - main
