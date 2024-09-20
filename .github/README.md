@@ -1,5 +1,7 @@
 # ⎈ `kubernetes`
 
+[![Build](https://github.com/AJCandfield/kubernetes/actions/workflows/build.yml/badge.svg)](https://github.com/AJCandfield/kubernetes/actions/workflows/build.yml)
+
 ## 🛠️ Tools
 
 It is recommended to install the following tools to use this project:
