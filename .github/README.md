@@ -1,7 +1,7 @@
 # ⎈ `kubernetes`
 
-![Kubernetes](https://img.shields.io/badge/kubernetes-%23326ce5.svg?style=for-the-badge&logo=kubernetes&logoColor=white)
-![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
+[![Kubernetes](https://img.shields.io/badge/kubernetes-%23326ce5.svg?style=for-the-badge&logo=kubernetes&logoColor=white)](https://kubectl.docs.kubernetes.io/guides/introduction/kubectl/)
+[![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)](https://docs.docker.com/get-started/)
 
 [![Linting](https://github.com/AJCandfield/kubernetes/actions/workflows/lint.yml/badge.svg)](https://github.com/AJCandfield/kubernetes/actions/workflows/lint.yml)
 
@@ -9,14 +9,47 @@
 
 It is recommended to install the following tools to use this project:
 
+### [`kustomize`](https://kubectl.docs.kubernetes.io/guides/introduction/kustomize/)
+
+> `kustomize` provides a solution for customizing Kubernetes resource configuration free from templates and DSLs.
+> `kustomize` lets you customize raw, template-free YAML files for multiple purposes,
+> leaving the original YAML untouched and usable as is.
+
+#### Installation
+
+```bash
+brew install kustomize
+```
+
+### [`kubectl`](https://kubectl.docs.kubernetes.io/guides/introduction/kubectl/)
+
+> `kubectl` is the Kubernetes cli version of a swiss army knife, and can do many things.
+
+#### Installation
+
+```bash
+brew install kubectl
+```
+
+### [`orbstack`](https://docs.orbstack.dev/)
+
+> OrbStack is a fast, light, and simple way to run containers and Linux machines.
+> It's a supercharged alternative to Docker Desktop and WSL, all in one easy-to-use app.
+
+#### Installation
+
+```bash
+brew install orbstack
+```
+
 ### [`kind`](https://kind.sigs.k8s.io/)
 
-> kind is a tool for running local Kubernetes clusters
+> `kind` is a tool for running local Kubernetes clusters
 > using Docker container “nodes”.
-> kind was primarily designed for testing Kubernetes itself,
+> `kind` was primarily designed for testing Kubernetes itself,
 > but may be used for local development or CI.
 
-To install:
+#### Installation
 
 ```bash
 brew install kind
@@ -27,9 +60,9 @@ brew install kind
 > Modern apps are made of too many services.
 > They’re everywhere and in constant communication.
 > Tilt powers microservice development and makes sure they behave!
-> Run tilt up to work in a complete dev environment configured for your team.
+> Run `tilt up` to work in a complete dev environment configured for your team.
 
-To install:
+#### Installation
 
 ```bash
 brew install tilt-dev/tap/tilt
@@ -39,7 +72,7 @@ brew install tilt-dev/tap/tilt
 
 > `ctlptl` is a CLI for declaratively setting up local Kubernetes clusters.
 
-To install:
+#### Installation
 
 ```bash
 brew install tilt-dev/tap/ctlptl
