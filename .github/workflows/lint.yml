@@ -24,12 +24,14 @@ jobs:
       packages: read
     steps:
       - name: Checkout code
+        id: checkout
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.LINTER_ACTION }}
           fetch-depth: 0
 
       - name: Super-Linter
+        id: linter
         uses: super-linter/super-linter@v7.1.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -62,6 +64,7 @@ jobs:
         # - Pull requests
         # - Not on the default branch
       - name: Commit and push linting fixes
+        id: commit
         uses: stefanzweifel/git-auto-commit-action@v5
         if: >
           github.event_name == 'pull_request' &&
