@@ -34,7 +34,7 @@ jobs:
         id: linter
         uses: super-linter/super-linter@v7.1.0
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.LINTER_ACTION }}
           VALIDATE_ALL_CODEBASE: false
           VALIDATE_CHECKOV: true
           VALIDATE_DOCKERFILE_HADOLINT: true
