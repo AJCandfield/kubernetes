@@ -9,6 +9,33 @@
 
 It is recommended to install the following tools to use this project:
 
+### [`helm`](https://helm.sh/)
+
+> Helm helps you manage Kubernetes applications.
+> Helm Charts help you define, install, and upgrade even the most complex Kubernetes application.
+
+#### Installation
+
+```bash
+brew install helm
+```
+
+Additionally, install the [`helm-diff`](https://github.com/databus23/helm-diff) plugin:
+
+```bash
+helm plugin install https://github.com/databus23/helm-diff
+```
+
+### [`helmfile`](https://helmfile.readthedocs.io/en/latest)
+
+> Helmfile is a declarative spec for deploying helm charts.
+
+#### Installation
+
+```bash
+brew install helmfile
+```
+
 ### [`kustomize`](https://kubectl.docs.kubernetes.io/guides/introduction/kustomize/)
 
 > `kustomize` provides a solution for customizing Kubernetes resource configuration free from templates and DSLs.
