@@ -1,3 +1,4 @@
+---
 repositories:
   - name: projectcalico
     url: https://docs.tigera.io/calico/charts
