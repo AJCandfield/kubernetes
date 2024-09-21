@@ -7,7 +7,7 @@
 
 ## 🛠️ Tools
 
-It is recommended to install the following tools to use this project:
+It is recommended to install the following tools to use this project:            
 
 ### [`kustomize`](https://kubectl.docs.kubernetes.io/guides/introduction/kustomize/)
 
