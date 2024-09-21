@@ -1,0 +1,24 @@
+---
+# Reference: https://kind.sigs.k8s.io/docs/user/configuration/
+
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+name: my-kind-of-cluster
+
+networking:
+  podSubnet: "10.0.69.0/24"
+  serviceSubnet: "10.0.70.0/24"
+
+nodes:
+  - role: control-plane
+    labels:
+      control-node: true
+  - role: worker
+    labels:
+      worker-node: true
+  - role: worker
+    labels:
+      worker-node: true
+  - role: worker
+    labels:
+      worker-node: true
