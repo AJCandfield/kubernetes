@@ -73,6 +73,6 @@ jobs:
           github.ref_name != github.event.repository.default_branch
         with:
           commit_message: "chore: fix linting issues [skip ci]"
-          # commit_options: "--no-verify --signoff"
-          # commit_user_email: ${{ steps.gpg.outputs.email }}
-          # commit_user_name: ${{ steps.gpg.outputs.name }}
+          commit_author: ${{ steps.gpg.outputs.name }} <${{ steps.gpg.outputs.email }}>
+          commit_user_email: ${{ steps.gpg.outputs.email }}
+          commit_user_name: ${{ steps.gpg.outputs.name }}
