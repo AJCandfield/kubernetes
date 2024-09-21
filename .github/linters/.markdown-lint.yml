@@ -1,0 +1,8 @@
+---
+# Example: https://github.com/DavidAnson/markdownlint/blob/main/schema/.markdownlint.yaml
+
+# line-length
+MD013: false
+
+# no-duplicate-heading
+MD024: false
