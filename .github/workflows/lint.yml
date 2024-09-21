@@ -1,0 +1,49 @@
+---
+name: Linting
+run-name: Linting files in `${{ github.head_ref || github.ref_name }}`
+
+concurrency:
+  group: ${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: true
+
+permissions: read-all
+
+on:
+  pull_request:
+
+jobs:
+  lint:
+    name: Linting files
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      statuses: write
+      packages: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.LINTER_ACTION }}
+          fetch-depth: 0
+
+      - name: Super-Linter
+        uses: super-linter/super-linter@v7.1.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_ALL_CODEBASE: false
+          VALIDATE_CHECKOV: true
+          VALIDATE_DOCKERFILE_HADOLINT: true
+          VALIDATE_GITLEAKS: true
+          VALIDATE_KUBERNETES_KUBECONFORM: true
+          VALIDATE_MARKDOWN: true
+          VALIDATE_MARKDOWN_PRETTIER: true
+          # VALIDATE_RENOVATE: true
+          VALIDATE_YAML: true
+          VALIDATE_YAML_PRETTIER: true
+          FIX_YAML_PRETTIER: true
+
+      - name: Commit and push linting fixes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: fix linting issues [skip ci]"
+          commit_options: "--no-verify"
