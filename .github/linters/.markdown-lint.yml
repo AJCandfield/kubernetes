@@ -1,5 +1,5 @@
 ---
-# Example: https://github.com/DavidAnson/markdownlint/blob/main/schema/.markdownlint.yaml
+# Reference: https://github.com/DavidAnson/markdownlint/blob/main/schema/.markdownlint.yaml
 
 # line-length
 MD013: false
