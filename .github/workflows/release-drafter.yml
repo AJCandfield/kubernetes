@@ -2,7 +2,7 @@
 # Reference: https://github.com/release-drafter/release-drafter#action-inputs
 
 name: Release Drafter
-run-name: Updating release draft after ${{ github.event.pull_request.issue_url }}
+run-name: Updating release draft after ${{ github.event.pull_request.html_url }}
 
 permissions: read-all
 
