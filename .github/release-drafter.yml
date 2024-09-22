@@ -1,0 +1,70 @@
+---
+name-template: v$RESOLVED_VERSION 🌈
+tag-template: v$RESOLVED_VERSION
+change-template: "- $TITLE @$AUTHOR (#$NUMBER)"
+change-title-escapes: '\<*_&' # You can add # and @ to disable mentions, and add ` to disable code blocks.
+
+template: |
+  ## Changes
+
+  $CHANGES
+
+# Categorize pull requests in release notes using labels.
+categories:
+  - title: 🚨 Breaking Changes
+    labels: [major]
+
+  - title: 🚀 Features
+    labels: [minor]
+
+  - title: 🐛 Bug Fixes
+    labels: [fix]
+
+  - title: 🧰 Maintenance
+    labels: [chore, docs]
+
+# Version number increment can be resolved automatically
+# based on labels of individual pull requests
+version-resolver:
+  default: patch
+
+  major:
+    labels:
+      - major
+
+  minor:
+    labels:
+      - minor
+
+  patch:
+    labels:
+      - patch
+      - fix
+      - chore
+      - docs
+
+# Automatically add a label into a pull request using regex
+autolabeler:
+  - label: major
+    title:
+      - '^\w+!:.\w.+'
+
+  - label: minor
+    branch:
+      - '^feat\/.+/'
+
+  - label: fix
+    branch:
+      - '^fix\/.+/'
+    title:
+      - '^fix:.\w.+'
+
+  - label: chore
+    title:
+      - '^chore:.\w.+'
+
+  - label: docs
+    files:
+      - "*.md"
+    title:
+      - '^docs{0,1}:.\w.+'
