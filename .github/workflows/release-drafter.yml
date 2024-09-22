@@ -24,3 +24,5 @@ jobs:
         uses: release-drafter/release-drafter@v6
         env:
           GITHUB_TOKEN: ${{ github.token }}
+        with:
+          commitish: main
