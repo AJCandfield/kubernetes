@@ -23,3 +23,10 @@ nodes:
   - role: worker
     labels:
       worker-node: true
+
+# The following is necessary to
+# use a local registry
+containerdConfigPatches:
+  - |-
+    [plugins."io.containerd.grpc.v1.cri".registry]
+      config_path = "/etc/containerd/certs.d"

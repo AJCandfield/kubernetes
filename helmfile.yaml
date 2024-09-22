@@ -5,6 +5,8 @@ repositories:
 
 releases:
   - name: calico
+    createNamespace: true
     namespace: tigera-operator
     chart: projectcalico/tigera-operator
     version: v3.28.2
+    disableValidation: true
