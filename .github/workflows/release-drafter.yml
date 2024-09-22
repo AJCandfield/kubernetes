@@ -1,6 +1,8 @@
 ---
+# Reference: https://github.com/release-drafter/release-drafter#action-inputs
+
 name: Release Drafter
-run-name: Updating release draft after ${{ github.event.pull_request.issue_url }}
+run-name: "PR: `${{ github.event.pull_request.title }}`"
 
 permissions: read-all
 
@@ -22,3 +24,5 @@ jobs:
         uses: release-drafter/release-drafter@v6
         env:
           GITHUB_TOKEN: ${{ github.token }}
+        with:
+          commitish: main
