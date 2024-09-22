@@ -1,6 +1,6 @@
 ---
 name: Release Drafter
-run-name: Updating release draft...
+run-name: Updating release draft after ${{ github.event.pull_request.issue_url }}
 
 permissions: read-all
 
@@ -12,6 +12,7 @@ on:
 
 jobs:
   draft:
+    name: Update release draft
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -20,4 +21,4 @@ jobs:
       - name: Release Drafter
         uses: release-drafter/release-drafter@v6
         env:
-          GITHUB_TOKEN: ${{ github.token}}
+          GITHUB_TOKEN: ${{ github.token }}
