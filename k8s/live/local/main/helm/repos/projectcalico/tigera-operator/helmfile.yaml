@@ -1,0 +1,18 @@
+---
+repositories:
+  - name: projectcalico
+    url: https://docs.tigera.io/calico/charts
+
+releases:
+  - name: calico
+    chart: projectcalico/tigera-operator
+    version: v3.28.2
+    namespace: tigera-operator
+    createNamespace: true
+    # We disable validation or the apply will fail
+    disableValidation: true
+    hooks:
+      - events: ["postsync"]
+        command: echo
+        args: ["{{`{{.Release.Name | title}}`}} helm chart installed ✅"]
+        showlogs: true
