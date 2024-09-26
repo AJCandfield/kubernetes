@@ -1,3 +1,6 @@
 # Ignore files created by the linter action
 github_conf
 super-linter-output
+
+# VSCode
+.vscode
