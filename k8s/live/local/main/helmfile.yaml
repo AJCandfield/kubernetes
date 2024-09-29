@@ -1,0 +1,12 @@
+---
+missingFileHandler: Error
+
+helmDefaults:
+  createNamespace: true
+
+helmfiles:
+  - path: helm/repos/projectcalico/tigera-operator/helmfile.yaml
+  # - path: helm/repos/grafana/grafana/helmfile.yaml
+  # - path: helm/repos/grafana/alloy/helmfile.yaml
+  # - path: helm/repos/grafana/loki/helmfile.yaml
+  # - path: helm/repos/prometheus-community/prometheus/helmfile.yaml
