@@ -1,0 +1,18 @@
+---
+name: Actions Runner Controller Demo
+run-name: Kind run
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: kind
+    steps:
+      - name: "Step 1: echo happiness"
+        run: echo "🎉 This job uses runner scale set runners!"
+
+      - name: "Step 2: Run commands"
+        run: |
+          uname -a
+          apt-get install kubectl -y
